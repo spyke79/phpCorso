@@ -19,6 +19,13 @@ if($st > 0){
     $utente = $ris->fetch();
     if($utente['pwd'] == md5($pwd)){
         echo "Benvenuto " . $utente['nome'];
+
+        //Creo La Sessione
+        session_start();
+        $_SESSION['user_id'] = $utente['id'];
+        $_SESSION['nome'] = $utente['nome'];
+
+        header('Location: admin/dashboard.php');
     }else{
         echo "Password Errata";
         header('Location: login.php?esito="Password Errata"');

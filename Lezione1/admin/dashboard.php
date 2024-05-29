@@ -1,3 +1,13 @@
+<?php
+
+session_start(); //AVVIO LA SESSIONE
+
+if(!$_SESSION['user_id']){
+    header('Location: ../login.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +25,10 @@
     $ris = $conn->query($sql); //Eseguo la query
 ?>
 <div class="container">
+    <div>
+        <h2>Benvenuto <?php echo $_SESSION['nome'] ?></h2>
+        <p><a href="logout.php">LogOut</a></p>
+    </div>
     <table class="table">
         <tr>
             <th>Nome</th>
