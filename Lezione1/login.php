@@ -245,6 +245,13 @@
             <div class="form__field">
                 <input type="submit" value="Sign In">
             </div>
+            <div>
+                <p><?php  
+                    if(isset($_GET['esito'])){
+                        echo $_GET['esito'];
+                    }
+                ?></p>
+            </div>
 
         </form>
 
